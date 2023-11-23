@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Disaster</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.42.0/apexcharts.min.css"
+        integrity="sha512-nnNXPeQKvNOEUd+TrFbofWwHT0ezcZiFU5E/Lv2+JlZCQwQ/ACM33FxPoQ6ZEFNnERrTho8lF0MCEH9DBZ/wWw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> 🌪️Disasters Graph</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" data-bs-toggle="modal" data-bs-target="#infoModal"><i
+                                class="fa-solid fa-circle-info"></i> Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h5>🌿 Natural Disaster</h5>
+            </div>
+            <div class="card-body">
+                <div id="chart">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="infoModalLabel"><i class="fa-solid fa-circle-info"></i> Info</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Nama: Hayyu Rahmayani Puspitasari</p>
+                    <p>NIM: 22/497739/SV/21157</p>
+                    <P>Kelas: PGWEB A</P>
+                    <p>Sumber Data: <a href="https://dibi.bnpb.go.id/
+                            target="_blank">https://dibi.bnpb.go.id//</a></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-2">
+        <small class="text-primary">hayyurahmayani @2023</small>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.42.0/apexcharts.min.js"
+        integrity="sha512-HctQcT5hnI/elQck4950pvd50RuDnjCSGSoHI8CNyQIYVxsUoyJ+gSQIOrll4oM/Z7Kfi7WCLMIbJbiwYHFCpA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var options = {
+            series: [{
+                data: [1988, 1703, 2313, 2914, 3522, 3906, 5003, 3533, 2403, 2445]
+            }],
+            chart: {
+                type: 'bar',
+                height: 380
+            },
+            plotOptions: {
+                bar: {
+                    barHeight: '100%',
+                    distributed: true,
+                    horizontal: true,
+                    dataLabels: {
+                        position: 'bottom'
+                    },
+                }
+            },
+            colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa', '#A5978B', '#2b908f', '#f9a3a4', '#90ee7e', '#f48024', '#69d2e7', '#0000FF', 
+            '#A52A2A', '#DC143C', '#8B008B', '#FF1493', '#FFD700', '#663399'
+            ],
+            dataLabels: {
+                enabled: true,
+                textAnchor: 'start',
+                style: {
+                    colors: ['#fff']
+                },
+                formatter: function (val, opt) {
+                    return val + ' disasters'
+                },
+                offsetX: 0,
+                dropShadow: {
+                    enabled: true
+                }
+            },
+            stroke: {
+                width: 1,
+                colors: ['#fff']
+            },
+            xaxis: {
+                categories: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'
+                ],
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            title: {
+                text: 'Statistic of Disasters',
+                align: 'center',
+                floating: true
+            },
+            subtitle: {
+                text: '2014 - 2023',
+                align: 'center',
+            },
+            tooltip: {
+                theme: 'dark',
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function () {
+                            return '' + ' disasters'
+                        }
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+</body>
+
+</html>
